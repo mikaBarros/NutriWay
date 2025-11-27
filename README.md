@@ -5,7 +5,7 @@
   Com base nisso, idealizamos e desenvolvemos uma ferramenta computacional (Incluir + ) visando melhoria para o programa, usando a tecnologia como solução para auxílio ao psicopedagogo.</p>
 <br>
 <H1>🛠️ Construído com</H1>
-<li><strong>React</strong> - Uma biblioteca JavaScript para criar interfaces de usuário</li>
+<li><strong>React Native</strong> - Uma biblioteca JavaScript para criar interfaces de usuário</li>
 <li><strong>Next JS</strong> - É uma estrutura da web de desenvolvimento front-end criada por Vercel que permite funcionalidades como renderização do lado do servidor baseados em React. </li>
 <li><strong>Vercel</strong> - Fornece ferramentas de desenvolvedor e infraestrutura de nuvem para criar, dimensionar e proteger uma web mais rápida e personalizada.</li>
 <li><strong>Figma</strong> - Ferramenta de design vetorial online e gratuita que permite criar protótipos.</li>
