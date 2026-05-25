@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   senhaesqueceu:{
     marginTop: 10,
     color: 'white',
-    textDecorationLine: 'underline'
+    textDecorationLine: 'underline',
 
   }
 });
