@@ -1,109 +1,148 @@
-import { StatusBar } from 'react-native';
-import { StyleSheet, Text, View, Image, TouchableOpacity, } from 'react-native';
 import React from 'react';
-import {Login} from '../inicio/Inicio';
-import Swiper from 'react-native-swiper';
-import Image1 from './image1.png';
-import Image2 from './Image2.png';
-import Image3 from './Image3.png';
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+// 1. Removi o SafeAreaView daqui para tirar o aviso de erro
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, StatusBar } from 'react-native';
+// 2. Importei o SafeAreaView do lugar correto
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-export default function NewUser({navigation}){
-      return (
-        <Swiper style={styles.wrapper} showsButtons={true}>
-          <View style={styles.slide1}>
-            <Image source={Image1} style={styles.image} />
-            <Text style={styles.titulo}>Você Não Está Sozinho</Text>
-            <Text style={styles.subtitulo}>Aqui, você encontrará todo o suporte necessário para se integrar melhor na escola. Estamos ao seu lado em cada passo do caminho.</Text>
-          </View>
-          <View style={styles.slide2}>
-            <Image source={Image2} style={styles.image} />
-            <Text style={styles.titulo1}>Melhor Organização </Text>
-            <Text style={styles.subtitulo1}>No nosso app, você pode criar e personalizar suas rotinas diárias. Isso ajuda a manter suas atividades organizadas e a garantir que você não perca nenhum compromisso importante.</Text>
-          </View>
-          <View style={styles.slide3}>
-            <Image source={Image3} style={styles.image} />
-            <Text style={styles.titulo2}>Estamos com você!</Text>
-            <TouchableOpacity onPress={()=> navigation.navigate('Home')} style={styles.prosseguir}>
-              <Text style={styles.textbotao}>Prosseguir</Text>
-            </TouchableOpacity>
-          </View>
-        </Swiper>
-      );
-    };
+const { width, height } = Dimensions.get('window');
 
-  
-    export const styles = StyleSheet.create({
-      wrapper: {
-        backgroundColor: 'black'
-      },
-      slide1: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#FFF6ED',
-      },
-      slide2: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#9CA262',
-      },
-      slide3: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#6D2E01',
-      },
-      image: {
-        width: '98%',
-        height: '50%',
-        bottom: '4%'
-      },
-      titulo:{
-        fontWeight: 'bold',
-        fontSize: 25,
-        bottom: '5%',
-        marginBottom: '4%' 
-      },
-      subtitulo:{
-        textAlign: 'center',
-        fontSize: 24,
-        bottom: '5%',
-        width: '80%'
-      },
-      titulo1:{
-        fontWeight: 'bold',
-        fontSize: 22,
-        marginBottom: '4%' 
-      },
-      subtitulo1:{
-        textAlign: 'center',
-        fontSize: 20,
-        width: '80%'
-      },
-      titulo2:{
-        fontWeight: 'bold',
-        fontSize: 36,
-        top: '0.4%',
-        color: 'white'
-      },
-      textbotao:{
-        fontSize: 25,
-        fontWeight: 'bold',
-        color: 'white',
-        paddingTop: '3%',
-        paddingLeft: '20%'
-      },
-      prosseguir:{
-        backgroundColor: '#724B2F',
-        width: '50%',
-        height: '5%',
-        top: '14%',
-        left: '22%',
-        borderRadius: 18
+export default function NewUser({ navigation }) {
+  return (
+    <SafeAreaView style={styles.container}>
+      <StatusBar barStyle="light-content" />
+      
+      {/* 3. REMOVI AS PALAVRAS 'code' e 'Code' QUE ESTAVAM AQUI E TRAVAVAM O APP */}
+
+      {/* 1. FUNDO VERDE (O ARCO) */}
+      <View style={styles.greenArc} />
+
+      {/* 2. LOGO E NOME DA MARCA */}
+      <View style={styles.logoContainer}>
+        <Image 
+          source={require('./logo1.png')} 
+          style={styles.logoImage} 
+          resizeMode="contain" 
+        />
+        <Text style={styles.brandName}>RAYANNE SOARES</Text>
+      </View>
+
+      {/* 3. CONTEÚDO CENTRAL */}
+      <View style={styles.mainContent}>
         
+        {/* 4. FOTO DE PERFIL */}
+        <View style={styles.circleContainer}>
+          <Image 
+            source={require('./perfil.png')} 
+            style={styles.profileImage} 
+            resizeMode="cover"
+          />
+        </View>
 
-      }
+        {/* 5. TEXTOS DA NUTRICIONISTA */}
+        <View style={styles.infoContainer}>
+          <Text style={styles.title}>NUTRICIONISTA | CRN 46881</Text>
+          <Text style={styles.description}>Nutricionista da APAE Esperança-PB</Text>
+          <Text style={styles.description}>Atendimento a Domicílio</Text>
+        </View>
 
-    });
+        {/* 6. BOTÃO FINAL */}
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={() => navigation.navigate('Login')}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.buttonText}>Começar agora</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#E7DBCA',
+  },
+  greenArc: {
+    position: 'absolute',
+    top: -height * 0.35,
+    alignSelf: 'center',
+    width: width * 2.2,
+    height: height * 0.8,
+    borderRadius: width * 1.1,
+    backgroundColor: '#A9B69B', 
+  },
+  logoContainer: {
+    height: height * 0.25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: height * 0.02,
+  },
+  logoImage: {
+    width: width * 0.6,
+    height: height * 0.15,
+  },
+  brandName: {
+    color: '#FFFFFF',
+    fontSize: width * 0.06,
+    fontWeight: '300',
+    letterSpacing: 3,
+    fontFamily: 'serif',
+    marginTop: -height * 0.02,
+  },
+  mainContent: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  circleContainer: {
+    width: width * 0.78,
+    height: width * 0.78,
+    borderRadius: (width * 0.78) / 2,
+    backgroundColor: '#FFF',
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.4)',
+    overflow: 'hidden',
+    marginTop: -height * 0.03,
+    elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+  },
+  profileImage: {
+    width: '100%',
+    height: '100%',
+  },
+  infoContainer: {
+    marginTop: height * 0.04,
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  title: {
+    fontSize: width * 0.045,
+    color: '#105D3F',
+    fontWeight: '700',
+    marginBottom: 5,
+  },
+  description: {
+    fontSize: width * 0.038,
+    color: '#105D3F',
+    textAlign: 'center',
+    lineHeight: width * 0.06,
+  },
+  button: {
+    backgroundColor: '#91AA86',
+    position: 'absolute',
+    bottom: height * 0.05, 
+    paddingVertical: height * 0.02,
+    paddingHorizontal: width * 0.15,
+    borderRadius: 50,
+    elevation: 5,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: width * 0.05,
+    fontWeight: '500',
+    fontFamily: 'serif',
+  },
+});
