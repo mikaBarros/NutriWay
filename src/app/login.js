@@ -70,7 +70,7 @@ export default function Login() {
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity style={styles.btn} onPress={() => router.push('/(tabs)')}>
             <Text style={styles.btnText}>Entrar</Text>
           </TouchableOpacity>
         </View>
