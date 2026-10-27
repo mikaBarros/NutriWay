@@ -1,10 +1,12 @@
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import styles from "../../../styles";
+import { router } from "expo-router";
 
 export default () => {
     return (
         <View style={styles.container}>
-            <Text>Teste</Text>
+            <Text>Agenda paciente</Text> 
         </View>
     );
+
 }

@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import styles from "../../../styles";
 
 export default () => {
@@ -7,7 +7,19 @@ export default () => {
     
     return (
         <View style={styles.container}>
-            <Text>Teste</Text>
+            <Text style={styles.titulo}>Perfil do paciente </Text>
+            <View>
+                <TouchableOpacity style={styles.botao}
+                    onPress={() => router.replace("/(tabs)/pacientes/informacaoConsulta")}
+                >
+                    <Text style={styles.textoBotao}>Informação da Consulta</Text>
+                    
+                </TouchableOpacity>
+                 <TouchableOpacity style={styles.botao} onPress={() => router.replace("/(tabs)/pacientes/informacaoPaciente")}>
+                    <Text style={styles.textoBotao}>Informação do paciente</Text>
+
+            </TouchableOpacity>
+            </View>
         </View>
     );
 }

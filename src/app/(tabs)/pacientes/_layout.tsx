@@ -10,7 +10,7 @@ export default () => {
             <Stack.Screen 
                 name="index" 
                 options={{ 
-                    title: "Pacientes",
+                    title: "Perfil do paciente",
                 }}
             />
             <Stack.Screen 
